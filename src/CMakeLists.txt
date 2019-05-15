@@ -1,0 +1,3 @@
+add_subdirectory(boostpython)
+add_subdirectory(PythonPlugin)
+add_subdirectory(PythonSimScriptPlugin)
