@@ -27,3 +27,9 @@ function(add_cnoid_python_module)
 endfunction()
 
 add_subdirectory(Util)
+add_subdirectory(Base)
+add_subdirectory(Body)
+add_subdirectory(Corba)
+add_subdirectory(OpenRTMPlugin)
+add_subdirectory(OpenHRPPlugin)
+
