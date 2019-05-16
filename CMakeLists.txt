@@ -9,11 +9,16 @@ unset(PYTHON_LIBRARY_DEBUG CACHE)
 find_package(PythonLibs 2 REQUIRED)
 find_package(Boost 1.54.0 REQUIRED COMPONENTS python)
 
-include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}/include)
-include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR})
-include_directories(${PYTHON_INCLUDE_PATH})
-include_directories(${Boost_INCLUDE_DIRS})
+set(BOOST_PYTHON_MODULE_INCLUDE_DIRS
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}
+  ${PYTHON_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIRS}
+)
 
+set(BOOST_PYTHON_MODULE_INCLUDE_DIRS ${BOOST_PYTHON_MODULE_INCLUDE_DIRS} PARENT_SCOPE)
+
+include_directories(BEFORE ${BOOST_PYTHON_MODULE_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
 
 set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS $<$<CONFIG:Release>:BOOST_DISABLE_ASSERTS>)
@@ -27,6 +32,9 @@ install(FILES ${init_py} DESTINATION ${CNOID_PYTHON_SUBDIR}/cnoid
 
 function(add_cnoid_python_module)
   
+  include_directories(BEFORE ${BOOST_PYTHON_MODULE_INCLUDE_DIRS})
+  link_directories(${Boost_LIBRARY_DIRS})
+
   set(target ${ARGV0})
   string(REGEX REPLACE "^Py(.+)$" "\\1" module ${target})
   set(sources ${ARGV})
