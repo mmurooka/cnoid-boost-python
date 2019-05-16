@@ -2,8 +2,8 @@
   @author Shin'ichiro Nakaoka
 */
 
-#include "../ToolBar.h"
-#include "../TimeBar.h"
+#include <cnoid/ToolBar>
+#include <cnoid/TimeBar>
 #include <cnoid/PySignal>
 #include <cnoid/PyUtil>
 

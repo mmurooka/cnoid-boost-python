@@ -5,7 +5,7 @@
 #ifndef CNOID_BASE_PYBASE_H
 #define CNOID_BASE_PYBASE_H
 
-#include "../ItemList.h"
+#include <cnoid/ItemList>
 #include <cnoid/PyUtil>
 #include "exportdecl.h"
 

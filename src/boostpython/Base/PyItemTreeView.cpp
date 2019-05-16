@@ -3,8 +3,8 @@
 */
 
 #include "PyBase.h"
-#include "../ItemTreeView.h"
-#include "../RootItem.h"
+#include <cnoid/ItemTreeView>
+#include <cnoid/RootItem>
 #include <cnoid/PySignal>
 
 using namespace cnoid;

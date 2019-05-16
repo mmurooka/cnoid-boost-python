@@ -3,19 +3,19 @@
 */
 
 #include "PyBase.h"
-#include "../Item.h"
-#include "../RootItem.h"
-#include "../FolderItem.h"
-#include "../AbstractTextItem.h"
-#include "../ScriptItem.h"
-#include "../ExtCommandItem.h"
-#include "../MultiValueSeqItem.h"
-#include "../MultiSE3MatrixSeqItem.h"
-#include "../MultiSE3SeqItem.h"
-#include "../Vector3SeqItem.h"
-#include "../SceneItem.h"
-#include "../PointSetItem.h"
-#include "../MultiPointSetItem.h"
+#include <cnoid/Item>
+#include <cnoid/RootItem>
+#include <cnoid/FolderItem>
+#include <cnoid/AbstractTextItem>
+#include <cnoid/ScriptItem>
+#include <cnoid/ExtCommandItem>
+#include <cnoid/MultiValueSeqItem>
+#include <cnoid/MultiSE3MatrixSeqItem>
+#include <cnoid/MultiSE3SeqItem>
+#include <cnoid/Vector3SeqItem>
+#include <cnoid/SceneItem>
+#include <cnoid/PointSetItem>
+#include <cnoid/MultiPointSetItem>
 #include <cnoid/PyUtil>
 
 namespace py = boost::python;

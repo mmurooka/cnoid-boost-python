@@ -2,11 +2,11 @@
  * @author Shin'ichiro Nakaoka
 */
 
-#include "../MessageView.h"
-#include "../SceneWidget.h"
-#include "../SceneView.h"
-#include "../TaskView.h"
-#include "../ViewManager.h"
+#include <cnoid/MessageView>
+#include <cnoid/SceneWidget>
+#include <cnoid/SceneView>
+#include <cnoid/TaskView>
+#include <cnoid/ViewManager>
 #include <cnoid/PySignal>
 #include <QWidget>
 

@@ -2,11 +2,11 @@
   @author Shin'ichiro Nakaoka
  */
 
-#include "../Body.h"
-#include "../BodyLoader.h"
-#include "../BodyMotion.h"
-#include "../InverseKinematics.h"
-#include "../JointPath.h"
+#include <cnoid/Body>
+#include <cnoid/BodyLoader>
+#include <cnoid/BodyMotion>
+#include <cnoid/InverseKinematics>
+#include <cnoid/JointPath>
 #include <cnoid/ValueTree>
 #include <cnoid/SceneGraph>
 #include <cnoid/PyUtil>

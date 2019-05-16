@@ -2,8 +2,8 @@
   @author Shin'ichiro Nakaoka
 */
 
-#include "../RTCItem.h"
-#include "../deprecated/BodyRTCItem.h"
+#include <cnoid/RTCItem>
+#include <cnoid/BodyRTCItem>
 
 #ifdef _WIN32
 #undef HAVE_UNISTD_H

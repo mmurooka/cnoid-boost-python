@@ -3,9 +3,9 @@
 */
 
 #include <cnoid/PySignal>
-#include "../Buttons.h"
-#include "../Action.h"
-#include "../Timer.h"
+#include <cnoid/Buttons>
+#include <cnoid/Action>
+#include <cnoid/Timer>
 
 using namespace boost;
 using namespace boost::python;

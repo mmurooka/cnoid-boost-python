@@ -2,8 +2,8 @@
   @author Shin'ichiro Nakaoka
 */
 
-#include "../SceneDragger.h"
-#include "../PositionDragger.h"
+#include <cnoid/SceneDragger>
+#include <cnoid/PositionDragger>
 #include <cnoid/PyUtil>
 
 using namespace boost;

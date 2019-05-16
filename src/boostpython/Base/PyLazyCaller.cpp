@@ -2,7 +2,7 @@
   @author Shin'ichiro Nakaoka
 */
 
-#include "../LazyCaller.h"
+#include <cnoid/LazyCaller>
 #include <cnoid/PyUtil>
 
 using namespace cnoid;
