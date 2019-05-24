@@ -23,6 +23,9 @@ void (ScopedConnectionSet::*ScopedConnectionSet_block2)(int) = &ScopedConnection
 void (ScopedConnectionSet::*ScopedConnectionSet_unblock1)() = &ScopedConnectionSet::unblock;
 void (ScopedConnectionSet::*ScopedConnectionSet_unblock2)(int) = &ScopedConnectionSet::unblock;
 
+void (ScopedConnection::*ScopedConnection_reset1)() = &ScopedConnection::reset;
+void (ScopedConnection::*ScopedConnection_reset2)(const Connection&) = &ScopedConnection::reset;
+
 }
 
 namespace cnoid {
@@ -42,7 +45,8 @@ void exportPySignalTypes()
         .def("unblock", &Connection::unblock);
 
     class_<ScopedConnection, boost::noncopyable>("ScopedConnection")
-        .def("reset", &ScopedConnection::reset)
+        .def("reset", ScopedConnection_reset1)
+        .def("reset", ScopedConnection_reset2)
         .def("disconnect", &ScopedConnection::disconnect)
         .def("connected", &ScopedConnection::connected)
         .def("block", &ScopedConnection::block)
