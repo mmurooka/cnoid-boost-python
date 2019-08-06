@@ -267,6 +267,14 @@ Vector3 getUnitZ(){
     return Vector3::UnitZ();
 }
 
+Vector3 rpyFromRot1(const Matrix3& R) {
+    return rpyFromRot(R);
+}
+
+Vector3 rpyFromRot2(const Matrix3& R, const Vector3& prev){
+    return rpyFromRot(R, prev);
+}
+
 }
 
 namespace cnoid {
@@ -314,7 +322,8 @@ void exportPyEigenTypes()
     ndarray_to_Transform_converter<Position>();
     pylist_to_Transform_converter<Position>();
 
-    py::def("rpyFromRot", cnoid::rpyFromRot);
+    py::def("rpyFromRot", rpyFromRot1);
+    py::def("rpyFromRot", rpyFromRot2);
     Matrix3 (*cnoid_rotFromRpy1)(const Vector3& rpy) = cnoid::rotFromRpy;
     py::def("rotFromRpy", cnoid_rotFromRpy1);
     py::def("rotFromRpy44", rotFromRpy44);
