@@ -118,6 +118,9 @@ LinkPtr Device_link(Device& self) { return self.link(); }
 Position Device_get_T_local(Device& self) { return (Position) self.T_local(); }
 void Device_set_T_local(Device& self, const Position& T_local) { self.T_local() = T_local.matrix(); }
 
+void (Body::*addDevice)(Device*, Link*) = &Body::addDevice;
+void (Body::*addDevice2)(Device*) = &Body::addDevice;
+
 } // namespace
 
 namespace cnoid 
@@ -239,7 +242,7 @@ BOOST_PYTHON_MODULE(Body)
     
     {
         py::scope bodyScope =
-            py::class_<Body, BodyPtr, py::bases<Referenced>>("Body")
+            py::class_<Body, BodyPtr, py::bases<Referenced>, boost::noncopyable>("Body")
             .def("clone", Body_clone)
             .def("createLink", Body_createLink1)
             .def("createLink", Body_createLink2)
@@ -272,7 +275,8 @@ BOOST_PYTHON_MODULE(Body)
             .def("getNumDevices", &Body::numDevices)
             .def("device", Body_device)
             .def("getDevice", Body_device)
-            .def("addDevice", &Body::addDevice)
+            .def("addDevice", addDevice)
+            .def("addDevice", addDevice2)
             .def("initializeDeviceStates", &Body::initializeDeviceStates)
             .def("clearDevices", &Body::clearDevices)
             .def("isStaticModel", &Body::isStaticModel)
