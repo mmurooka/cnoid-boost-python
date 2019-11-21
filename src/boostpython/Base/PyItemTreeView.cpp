@@ -15,7 +15,7 @@ CNOID_PYTHON_DEFINE_GET_POINTER(ItemTreeView)
 
 namespace {
 
-RootItemPtr ItemTreeView_rootItem(ItemTreeView& self) { return self.rootItem(); }
+ItemPtr ItemTreeView_rootItem(ItemTreeView& self) { return self.rootItem(); }
 
 py::object ItemTreeView_selectedItems(ItemTreeView& self, py::object itemClass){
     return getPyNarrowedItemList(self.selectedItems(), itemClass);
