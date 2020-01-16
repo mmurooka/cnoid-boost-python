@@ -9,6 +9,7 @@
 #include <cnoid/Archive>
 #include <cnoid/FileUtil>
 #include <cnoid/LazyCaller>
+#include <cnoid/PutPropertyFunction>
 #include "gettext.h"
 
 using namespace std;

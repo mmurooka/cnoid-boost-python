@@ -15,7 +15,7 @@ CNOID_PYTHON_DEFINE_GET_POINTER(ItemTreeView)
 
 namespace {
 
-ItemPtr ItemTreeView_rootItem(ItemTreeView& self) { return self.rootItem(); }
+//ItemPtr ItemTreeView_rootItem(ItemTreeView& self) { return self.rootItem(); }
 
 py::object ItemTreeView_selectedItems(ItemTreeView& self, py::object itemClass){
     return getPyNarrowedItemList(self.selectedItems(), itemClass);
@@ -77,9 +77,9 @@ bool ItemTreeView_checkItem3(ItemTreeView& self, ItemPtr item, bool check, int i
     return self.checkItem(item, check, id);
 }
 
-SignalProxy<void(Item*, bool)> (ItemTreeView::*ItemTreeView_sigCheckToggled1)(int) = &ItemTreeView::sigCheckToggled;
+SignalProxy<void(Item*, bool)> (ItemTreeView::*ItemTreeView_sigCheckToggled1)(int) const = &ItemTreeView::sigCheckToggled;
 BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(ItemTreeView_sigCheckToggled1_overloads, sigCheckToggled, 0, 1)
-SignalProxy<void(bool)> (ItemTreeView::*ItemTreeView_sigCheckToggled2)(Item*, int) = &ItemTreeView::sigCheckToggled;
+SignalProxy<void(bool)> (ItemTreeView::*ItemTreeView_sigCheckToggled2)(Item*, int) const = &ItemTreeView::sigCheckToggled;
 BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(ItemTreeView_sigCheckToggled2_overloads, sigCheckToggled, 1, 2)
 
 }
@@ -94,8 +94,8 @@ void exportPyItemTreeView()
     py::class_<ItemTreeView, ItemTreeView*, py::bases<View>, boost::noncopyable>("ItemTreeView", py::no_init)
         .def("instance", &ItemTreeView::instance, py::return_value_policy<py::reference_existing_object>()).staticmethod("instance")
         .def("getInstance", &ItemTreeView::instance, py::return_value_policy<py::reference_existing_object>()).staticmethod("getInstance")
-        .def("rootItem", ItemTreeView_rootItem)
-        .def("getRootItem", ItemTreeView_rootItem)
+        //.def("rootItem", ItemTreeView_rootItem)
+        //.def("getRootItem", ItemTreeView_rootItem)
         .def("selectedItems", &ItemTreeView::selectedItems<Item>)
         .def("getSelectedItems", &ItemTreeView::selectedItems<Item>)
         .def("selectedItems", ItemTreeView_selectedItems)
@@ -119,13 +119,13 @@ void exportPyItemTreeView()
         .def("checkItem", ItemTreeView_checkItem3)
         .def("sigSelectionChanged", &ItemTreeView::sigSelectionChanged)
         .def("getSigSelectionChanged", &ItemTreeView::sigSelectionChanged)
-        .def("sigSelectionOrTreeChanged", &ItemTreeView::sigSelectionOrTreeChanged)
-        .def("getSigSelectionOrTreeChanged", &ItemTreeView::sigSelectionOrTreeChanged)
+        //.def("sigSelectionOrTreeChanged", &ItemTreeView::sigSelectionOrTreeChanged)
+        //.def("getSigSelectionOrTreeChanged", &ItemTreeView::sigSelectionOrTreeChanged)
         .def("sigCheckToggled", ItemTreeView_sigCheckToggled1, ItemTreeView_sigCheckToggled1_overloads())
         .def("getSigCheckToggled", ItemTreeView_sigCheckToggled1, ItemTreeView_sigCheckToggled1_overloads())
         .def("sigCheckToggled", ItemTreeView_sigCheckToggled2, ItemTreeView_sigCheckToggled2_overloads())
         .def("getSigCheckToggled", ItemTreeView_sigCheckToggled2, ItemTreeView_sigCheckToggled2_overloads())
-        .def("cutSelectedItems", &ItemTreeView::cutSelectedItems)
+        //.def("cutSelectedItems", &ItemTreeView::cutSelectedItems)
         ;
 }
 

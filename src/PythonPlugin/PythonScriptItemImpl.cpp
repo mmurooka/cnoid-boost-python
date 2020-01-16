@@ -7,6 +7,7 @@
 #include <cnoid/Archive>
 #include <cnoid/FileUtil>
 #include <fmt/format.h>
+#include <cnoid/PutPropertyFunction>
 #include "gettext.h"
 
 using namespace std;
