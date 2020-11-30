@@ -2,7 +2,7 @@
   @author Shin'ichiro Nakaoka
 */
 
-#include "../BodyItem.h"
+#include <cnoid/BodyItem>
 #include <cnoid/BodyState>
 #include <cnoid/PyBase>
 

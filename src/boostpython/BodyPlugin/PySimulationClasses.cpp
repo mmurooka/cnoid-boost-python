@@ -2,14 +2,14 @@
   @author Shin'ichiro Nakaoka
 */
 
-#include "../SimulatorItem.h"
-#include "../AISTSimulatorItem.h"
-#include "../SubSimulatorItem.h"
-#include "../GLVisionSimulatorItem.h"
-#include "../SimulationScriptItem.h"
-#include "../SimulationBar.h"
-#include "../BodyItem.h"
-#include "../SimpleControllerItem.h"
+#include <cnoid/SimulatorItem>
+#include <cnoid/AISTSimulatorItem>
+#include <cnoid/SubSimulatorItem>
+// #include <cnoid/GLVisionSimulatorItem> // TODO: comment out because cnoid/GLVisionSimulatorItem is missing
+#include <cnoid/SimulationScriptItem>
+#include <cnoid/SimulationBar>
+#include <cnoid/BodyItem>
+#include <cnoid/SimpleControllerItem>
 #include <cnoid/PyBase>
 
 using namespace boost::python;
@@ -154,6 +154,8 @@ void exportSimulationClasses()
     implicitly_convertible<SubSimulatorItemPtr, ItemPtr>();
     PyItemList<SubSimulatorItem>("SubSimulatorItemList");
 
+    // TODO: make cnoid/GLVisionSimulatorItem in include directory
+    /*
     class_< GLVisionSimulatorItem, GLVisionSimulatorItemPtr, bases<SubSimulatorItem> >("GLVisionSimulatorItem")
         .def("setTargetBodies", &GLVisionSimulatorItem::setTargetBodies)
         .def("setTargetSensors", &GLVisionSimulatorItem::setTargetSensors)
@@ -170,6 +172,7 @@ void exportSimulationClasses()
 
     implicitly_convertible<GLVisionSimulatorItemPtr, SubSimulatorItemPtr>();
     PyItemList<GLVisionSimulatorItem>("GLVisionSimulatorItemList");
+    */
 
 #endif
     

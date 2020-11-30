@@ -2,8 +2,8 @@
   @author Shin'ichiro Nakaoka
 */
 
-#include "../BodyMotionItem.h"
-#include "../WorldItem.h"
+#include <cnoid/BodyMotionItem>
+#include <cnoid/WorldItem>
 #include <cnoid/PyBase>
 
 using namespace boost::python;
