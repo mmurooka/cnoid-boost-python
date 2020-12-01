@@ -78,6 +78,8 @@ void exportSimulationClasses()
         .def("setAllLinkPositionOutputMode", &SimulatorItem::setAllLinkPositionOutputMode)
         .def("setExternalForce", &SimulatorItem::setExternalForce, SimulatorItem_setExternalForce_overloads())
         .def("clearExternalForces", &SimulatorItem::clearExternalForces)
+        .def("setExternalForceList", &SimulatorItem::setExternalForceList)
+        .def("clearExternalForceList", &SimulatorItem::clearExternalForceList)
         .def("setForcedPosition", &SimulatorItem::setForcedPosition)
         .def("clearForcedPositions", &SimulatorItem::clearForcedPositions)
         ;
